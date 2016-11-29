@@ -53,4 +53,7 @@
 - (void)toByteArraySigned: (unsigned char*) byteArray;
 - (void)toByteArrayUnsigned: (unsigned char*) byteArray;
 
++ (id)generateRandomBigNumber;
++ (id)generateRandomBigNumberOfLength:(int)length;
+
 @end

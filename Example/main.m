@@ -49,6 +49,9 @@ int main(int argc, const char *argv[]) {
         
         JKBigDecimal *dec3 = [[JKBigDecimal alloc] initWithString:@"0.99"];
         NSLog(@"%@ pow 365 = %@", dec3, [dec3 pow:365]);
+        
+        JKBigInteger *int7 = [JKBigInteger generateRandomBigNumber];
+        NSLog(@"Random Int: %@", int7);
     }
     return 0;
 }

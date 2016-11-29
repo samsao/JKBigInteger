@@ -345,6 +345,20 @@
     return newBigInteger;
 }
 
+
++ (id)generateRandomBigNumber {
+    return [self generateRandomBigNumberOfLength:128];
+}
+
++ (id)generateRandomBigNumberOfLength:(int)length {
+    mp_int randomBigNumber;
+    mp_init(&randomBigNumber);
+    while(!mp_rand(&randomBigNumber, length)) {
+        break;
+    }
+    return [[JKBigInteger alloc] initWithValue:&randomBigNumber];
+}
+
 - (NSComparisonResult) compare:(JKBigInteger *)bigInteger {
 
     NSComparisonResult comparisonResult;
