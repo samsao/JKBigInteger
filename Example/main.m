@@ -11,13 +11,18 @@
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        JKBigInteger *int1 = [[JKBigInteger alloc] initWithString:@"123"];
+        JKBigInteger *int1 = [[JKBigInteger alloc] initWithString:@"5"];
 
         NSLog(@"%@ + %@ = %@", int1, int1, [int1 add:int1]);
 
-        JKBigInteger *int2 = [[JKBigInteger alloc] initWithString:@"10000001234567890123"];
-        JKBigInteger *int3 = [[JKBigInteger alloc] initWithString:@"123"];
-
+        //Diffie–Hellman
+        JKBigInteger *int2 = [[JKBigInteger alloc] initWithString:@"33333333333333333333333333333333" andRadix:16];
+        JKBigInteger *int3 = [[JKBigInteger alloc] initWithString:@"752da4c3a7e3d18979162a09486e5ed3" andRadix:16];
+        JKBigInteger *int7 = [JKBigInteger generateRandomBigNumber];
+        NSLog(@"%@ ^ %@ %% %@ = %@", int1, int2, int3, [[int1 pow:int7 andMod:int3] stringValueWithRadix:16]);
+        
+        //////////
+        
         NSLog(@"%@ - %@ = %@", int2, int3, [int2 subtract:int3]);
         
         JKBigInteger *int4 = [[JKBigInteger alloc] initWithString:@"11111111111111111111"];
@@ -50,8 +55,6 @@ int main(int argc, const char *argv[]) {
         JKBigDecimal *dec3 = [[JKBigDecimal alloc] initWithString:@"0.99"];
         NSLog(@"%@ pow 365 = %@", dec3, [dec3 pow:365]);
         
-        JKBigInteger *int7 = [JKBigInteger generateRandomBigNumber];
-        NSLog(@"Random Int: %@", int7);
     }
     return 0;
 }
